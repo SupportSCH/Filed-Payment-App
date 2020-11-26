@@ -38,4 +38,11 @@ After a successful payment, your card details will be stored and you can see it 
 You can select a card and the card details will be auto populated into the form or you can also delete the card from the Saved Card list.
 
 #
-The Saved Card details will be persisted in the ngRx store until the application is reloaded.
+The Saved Card details will be persisted in the ngRx store until the application is reloaded. Which means you can navigate back and forth between two pages without loosing your card details.
+
+###
+![image](https://user-images.githubusercontent.com/48716932/100387308-cd4e2e00-304d-11eb-86c0-a4fa616d843f.png)
+![image](https://user-images.githubusercontent.com/48716932/100387383-f53d9180-304d-11eb-9c5f-35882e955b24.png)
+#
+This apllication is mobile responsive too!
+
