@@ -1,0 +1,107 @@
+<div class="card">
+  <div class="row">
+    <!--------- payment section start ---------->
+    <div class="col-md-8 pt-3 paymentSection">
+      <div class="title">
+        <div class="row">
+          <div class="col text-center">
+            <h5>Make payment of &#x20B9; 3890.46</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row border-bottom">
+        <div class="col p-0 main d-flex justify-content-center">
+          <img class="images"
+            src="https://cdn4.iconfinder.com/data/icons/payment-method/160/payment_method_card_visa-256.png">
+          <img class="images"
+            src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png">
+          <img class="images"
+            src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png">
+          <img class="images"
+            src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png">
+        </div>
+      </div>
+      <div class="row main">
+        <div class="col">
+          <form [formGroup]="cardDetailsForm">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="ccnumber">CREDIT CARD NUMBER</label>
+                  <div class="input-group">
+                    <input class="form-control" type="text" formControlName="cardNumber" maxlength="16"
+                      placeholder="XXXX XXXX XXXX XXXX">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fa fa-credit-card"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7">
+                <div class="form-group">
+                  <label for="ccnumber">EXPIRATION DATE</label>
+                  <input type="date" formControlName="expDate" [min]="currDate" class="form-control"
+                    placeholder="MM / YY" />
+                </div>
+              </div>
+              <div class="col-md-5 pull-right">
+                <div class="form-group">
+                  <label>CV CODE</label>
+                  <input type="text" formControlName="cvc" class="form-control" maxlength="3" placeholder="CVC" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>CARD HOLDER</label>
+                  <input type="text" formControlName="cardHolder" class="form-control" placeholder="Card Holder Name" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>AMOUNT</label>
+                  <input type="number" formControlName="amount" class="form-control" min="0"
+                    pattern="^[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*$" placeholder="Amount to be paid" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button class="btn btn-success" (click)="onSubmit()" [disabled]="!cardDetailsForm.valid">Confirm
+            Payment</button>
+        </div>
+      </div>
+
+    </div>
+    <!--------- payment section end ---------->
+
+    <!--------- saved cards section start ---------->
+    <div class="col-md-4 savedCardsSection">
+      <div>
+        <h5><b>Saved Cards</b></h5>
+      </div>
+      <hr>
+
+      <div class="savedCard" *ngFor="let card of cards | async; let i = index">
+        <div class="d-flex justify-content-between" (click)="selectCard(i)">
+          <div style="padding-left:0; cursor: pointer;" data-toggle="tooltip" title="Use this card"><i class="fa fa-credit-card"></i> {{card.cardNumber}}</div>
+          <button class="btn btn-sm deleteCard" (click)="deleteCardDetail(i)"><i
+              class="deleteCard fa fa-trash"></i></button>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <!--------- saved cards section end ---------->
+  </div>
+</div>

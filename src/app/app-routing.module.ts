@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { MyCartComponent } from './my-cart/my-cart.component';
-import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ToolbarComponent } from './layouts/toolbar/toolbar.component';
+import { MyCartComponent } from './layouts/my-cart/my-cart.component';
+import { PaymentPageComponent } from './layouts/payment-page/payment-page.component';
 
 
 const routes: Routes = [
